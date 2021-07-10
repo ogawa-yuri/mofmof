@@ -1,27 +1,27 @@
 <p id="notice"><%= notice %></p>
-
+<h1>閲覧</h1>
 <p>
-  <strong>Property name:</strong>
+  <strong>物件名:</strong>
   <%= @property.property_name %>
 </p>
 
 <p>
-  <strong>Property fee:</strong>
+  <strong>賃料:</strong>
   <%= @property.property_fee %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>住所:</strong>
   <%= @property.address %>
 </p>
 
 <p>
-  <strong>Age property:</strong>
+  <strong>築年数:</strong>
   <%= @property.age_property %>
 </p>
 
 <p>
-  <strong>Remarks:</strong>
+  <strong>備考:</strong>
   <%= @property.remarks %>
 </p>
 
@@ -42,5 +42,5 @@
 <% end %>
 
 
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+<%= link_to '編集', edit_property_path(@property) %> |
+<%= link_to '戻る', properties_path %>
