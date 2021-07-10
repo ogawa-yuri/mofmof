@@ -2,7 +2,6 @@
   <% if property.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
-
       <ul>
       <% property.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,29 +11,38 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :property_name %>
+    <%= form.label :property_name, "物件名" %>
     <%= form.text_field :property_name %>
-  </div>
 
-  <div class="field">
-    <%= form.label :property_fee %>
+    <%= form.label :property_fee, "賃料" %>
     <%= form.text_field :property_fee %>
-  </div>
 
-  <div class="field">
-    <%= form.label :address %>
+    <%= form.label :address, "住所" %>
     <%= form.text_field :address %>
-  </div>
 
-  <div class="field">
-    <%= form.label :age_property %>
+    <%= form.label :age_property, "築年数" %>
     <%= form.text_field :age_property %>
-  </div>
 
-  <div class="field">
-    <%= form.label :remarks %>
+    <%= form.label :remarks, "備考" %>
     <%= form.text_area :remarks %>
   </div>
+
+  <% @property.stations.each_with_index do |station, index| %>
+    <%= form.fields_for :stations, station do |m| %>
+    <h2>最寄駅<%= index + 1 %></h2>
+
+      <div class="field">
+      <%= m.label :route_name, "路線名" %>
+      <%= m.text_field :route_name %>
+
+      <%= m.label :station_name, "駅名" %>
+      <%= m.text_field :station_name %>
+
+      <%= m.label :minutes, "徒歩分数" %>
+      <%= m.text_field :minutes %>
+      </div>
+    <% end %>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>
